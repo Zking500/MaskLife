@@ -2,37 +2,38 @@ using UnityEngine;
 
 public class Camara : MonoBehaviour
 {
-    public float Sensibilidad = 1000f;
+    [Range(50f, 1000f)]
+    public float Sensibilidad = 500f;
+
     public Transform Player;
 
     float RotacionVertical = 0f;
-
-    void Start()
-    {
-        //Bloquea el cursor en el centro de la pantalla
-        Cursor.lockState = CursorLockMode.Locked;
-
-        //Oculta el cursor mientras juegas
-        Cursor.visible = false;
-    }
+    private bool inputBloqueado = false;
 
     void Update()
     {
-        //Nos dan los valores del mouse para mover
-        float ValorX = Input.GetAxis("Mouse X") * Sensibilidad * Time.deltaTime;
-        float ValorY = Input.GetAxis("Mouse Y") * Sensibilidad * Time.deltaTime;
+        // 🔥 Bloqueo inmediato
+        if (inputBloqueado)
+            return;
 
-        //Guarda el valor y queda en el valor para seguir
-        RotacionVertical -= ValorY;
-        RotacionVertical = Mathf.Clamp(RotacionVertical, -80, 80);
+        float mouseX = Input.GetAxisRaw("Mouse X") * Sensibilidad * Time.deltaTime;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Sensibilidad * Time.deltaTime;
 
-        //Hace la rotacion vertical fluida
+        RotacionVertical -= mouseY;
+        RotacionVertical = Mathf.Clamp(RotacionVertical, -80f, 80f);
+
         transform.localRotation = Quaternion.Euler(RotacionVertical, 0f, 0f);
+        Player.Rotate(Vector3.up * mouseX);
+    }
 
-        //Hce la rotacion horizontal
-        if (Player != null) {
-            Player.Rotate(Vector3.up * ValorX);
-        }
-        
+    // 🔥 Métodos públicos para el UiManager
+    public void BloquearInput()
+    {
+        inputBloqueado = true;
+    }
+
+    public void DesbloquearInput()
+    {
+        inputBloqueado = false;
     }
 }
