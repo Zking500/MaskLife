@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.764151, g: 0.68124783, b: 0.68124783, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.039
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -27,10 +27,10 @@ RenderSettings:
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
-  m_HaloStrength: 0.5
+  m_HaloStrength: 0.207
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
-  m_HaloTexture: {fileID: 0}
+  m_HaloTexture: {fileID: 2800000, guid: 30739d4f17365bb42956979fd7f132b4, type: 3}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
@@ -1770,11 +1770,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2301452084761629562, guid: e4578a80b5f559d48b2c5798041c3a96, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6034019
+      value: 0.78
       objectReference: {fileID: 0}
     - target: {fileID: 2301452084761629562, guid: e4578a80b5f559d48b2c5798041c3a96, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 27.33
+      value: 28.46
       objectReference: {fileID: 0}
     - target: {fileID: 2301452084761629562, guid: e4578a80b5f559d48b2c5798041c3a96, type: 3}
       propertyPath: m_LocalRotation.w
