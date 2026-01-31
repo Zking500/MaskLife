@@ -4,14 +4,20 @@ public class BookPuzzleTrigger : MonoBehaviour
 {
     public GameObject puzzleUI;
 
-    private void OnTriggerEnter(Collider other)
+    private bool used = false;
+
+private void OnTriggerEnter(Collider other)
+{
+    if (used) return;
+
+    if (other.CompareTag("Player"))
     {
-        if (other.CompareTag("Player"))
-        {
-            puzzleUI.SetActive(true);
-            Time.timeScale = 0f;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+        used = true;
+        puzzleUI.SetActive(true);
+        Time.timeScale = 0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
+}
+
 }

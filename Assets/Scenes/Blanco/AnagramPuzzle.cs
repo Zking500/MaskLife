@@ -3,33 +3,33 @@ using TMPro;
 
 public class AnagramPuzzle : MonoBehaviour
 {
-    public TMP_Text anagramText;
-    public TMP_InputField inputField;
-    public TMP_Text resultText;
+    public TMP_Text TextoAnagrama;
+    public TMP_InputField InputRespuesta;
+    public TMP_Text TextoResultado;
 
     public string correctPhrase = "LA MUERTE ROJA";
 
     void OnEnable()
     {
-        anagramText.text = ShuffleString(correctPhrase);
-        inputField.text = "";
-        resultText.text = "";
+        TextoAnagrama.text = ShuffleString(correctPhrase);
+        InputRespuesta.text = "";
+        TextoResultado.text = "";
     }
 
     public void CheckAnswer()
     {
-        string playerAnswer = inputField.text.ToUpper().Trim();
+        string playerAnswer = InputRespuesta.text.ToUpper().Trim();
 
         if (playerAnswer == correctPhrase)
         {
-            resultText.text = "Correcto.";
-            resultText.color = Color.green;
+            TextoResultado.text = "Correcto.";
+            TextoResultado.color = Color.green;
             Invoke(nameof(ClosePuzzle), 1.5f);
         }
         else
         {
-            resultText.text = "Incorrecto.";
-            resultText.color = Color.red;
+            TextoResultado.text = "Incorrecto.";
+            TextoResultado.color = Color.red;
         }
     }
 
