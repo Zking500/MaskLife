@@ -16,6 +16,8 @@ public class PlayerMovimiento : MonoBehaviour
     void Start()
     {
         Controlador = GetComponent<CharacterController>();
+        Controlador.stepOffset = 0.5f;
+        Speed = 8;
     }
 
     void Update()
